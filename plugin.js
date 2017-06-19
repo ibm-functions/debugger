@@ -1,5 +1,5 @@
-const ClientSetup = require('./helpers/openwhisk-debugger/client/debugger.js'),
-      Persistence = require('./helpers/persistence')
+const ClientSetup = require('./lib/openwhisk-debugger/client/debugger.js'),
+      Persistence = require('./lib/persistence')
 
 const onDebugSessionDone = activation => {
     const notification = new Notification('Debug Session Complete', {
@@ -14,8 +14,8 @@ module.exports = (commandTree, prequire) => {
 
     // install the routes
     ClientSetup(wsk, onDebugSessionDone, Persistence.getSavedClientState()).then(client => {
-        const attach = require('./helpers/attach')(client),
-              debug = require('./helpers/debug')(wsk, client, attach)
+        const attach = require('./lib/attach')(client),
+              debug = require('./lib/debug')(wsk, client, attach)
 
         wsk.synonyms('actions').forEach(syn => {
             /** attach routes */
