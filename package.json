@@ -1,0 +1,27 @@
+{
+  "name": "wskng-debugger-plugin",
+  "version": "1.0.0",
+  "description": "A debugger plugin for wskng",
+  "main": "main.js",
+  "scripts": {
+    "start": "./bin/seticon.sh && NODE_DEBUG=$WSKNG_NODE_DEBUG electron .",
+    "test": "cd ../tests && npm run test"
+  },
+  "repository": "https://github.ibm.comcom/nickm/wskng-debugger-plugin",
+  "keywords": [
+    "OpenWhisk",
+    "debugger",
+    "plugin"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {},
+  "dependencies": {
+    "diff": "^3.2.0",
+    "inspect-process": "git://github.com/starpit/inspect-process.git#add_childOptions",
+    "node-inspector": "git://github.com/kerryspchang/node-inspector.git",
+    "open": "0.0.5",
+    "tmp": "0.0.31",
+    "tree-kill": "^1.1.0"
+  }
+}
