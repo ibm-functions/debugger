@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "./bin/seticon.sh && NODE_DEBUG=$WSKNG_NODE_DEBUG electron .",
-    "postinstall", "cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install",
+    "postinstall": "cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install",
     "test": "cd ../tests && npm run test"
   },
   "repository": "https://github.ibm.comcom/nickm/wskng-debugger-plugin",
