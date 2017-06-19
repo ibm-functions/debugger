@@ -2,10 +2,12 @@ const ClientSetup = require('./lib/openwhisk-debugger/client/debugger.js'),
       Persistence = require('./lib/persistence')
 
 const onDebugSessionDone = activation => {
-    const notification = new Notification('Debug Session Complete', {
-        body: `Your debug session has finished with activation id ${activation.activationId}`
-    })
-    notification.onclick = repl.pexec(`wsk activation get ${activation.activationId}`)
+    if (!process.env.NO_NOTIFICATIONS) {
+        const notification = new Notification('Debug Session Complete', {
+            body: `Your debug session has finished with activation id ${activation.activationId}`
+        })
+        notification.onclick = repl.pexec(`wsk activation get ${activation.activationId}`)
+    }
 }
 
 const pleaseWait = () => 'Please wait while the plugin finishes its one-time initialization'
