@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "./bin/seticon.sh && NODE_DEBUG=$WSKNG_NODE_DEBUG electron .",
-    "postinstall": "cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install",
+    "postinstall": "./bin/handleNodejs6.sh && cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install",
     "test": "cd ../tests && npm run test"
   },
   "repository": "https://github.ibm.comcom/nickm/wskng-debugger-plugin",
@@ -20,7 +20,6 @@
   "dependencies": {
     "diff": "^3.2.0",
     "inspect-process": "git://github.com/starpit/inspect-process.git#add_childOptions",
-    "node-inspector": "git://github.com/kerryspchang/node-inspector.git",
     "open": "0.0.5",
     "tmp": "0.0.31",
     "tree-kill": "^1.1.0"
