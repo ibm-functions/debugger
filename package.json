@@ -4,17 +4,16 @@
   "description": "A debugger plugin for wskng",
   "main": "main.js",
   "scripts": {
-    "start": "./bin/seticon.sh && NODE_DEBUG=$WSKNG_NODE_DEBUG electron .",
     "postinstall": "./bin/handleNodejs6.sh && cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install",
     "test": "cd ../tests && npm run test"
   },
-  "repository": "https://github.ibm.comcom/nickm/wskng-debugger-plugin",
+  "repository": "https://github.ibm.com/nickm/wskng-debugger-plugin",
   "keywords": [
     "OpenWhisk",
     "debugger",
     "plugin"
   ],
-  "author": "GitHub",
+  "author": "Nick Mitchell",
   "license": "CC0-1.0",
   "devDependencies": {},
   "dependencies": {
