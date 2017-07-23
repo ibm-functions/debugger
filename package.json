@@ -4,7 +4,7 @@
   "description": "A debugger plugin for wskng",
   "main": "main.js",
   "scripts": {
-    "postinstall": "./bin/handleNodejs6.sh && cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install",
+    "postinstall": "./bin/handleNodejs6.sh && cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install --production",
     "test": "cd ../tests && npm run test"
   },
   "repository": "https://github.ibm.com/nickm/wskng-debugger-plugin",
