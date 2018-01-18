@@ -1,20 +1,21 @@
 {
-  "name": "wskng-debugger-plugin",
+  "name": "debugger",
   "version": "1.0.0",
-  "description": "A debugger plugin for wskng",
+  "description": "A debugger plugin for IBM Cloud Shell",
   "main": "main.js",
   "scripts": {
     "postinstall": "./bin/handleNodejs6.sh && cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install --production",
     "test": "cd ../tests && npm run test"
   },
-  "repository": "https://github.ibm.com/nickm/wskng-debugger-plugin",
+  "repository": "https://github.com/ibm-functionsnickm/debugger,
   "keywords": [
     "OpenWhisk",
+    "shell",
     "debugger",
     "plugin"
   ],
   "author": "Nick Mitchell",
-  "license": "CC0-1.0",
+  "license": "Apache-2.0",
   "devDependencies": {},
   "dependencies": {
     "diff": "^3.2.0",
