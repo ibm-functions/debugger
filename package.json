@@ -1,5 +1,5 @@
 {
-  "name": "debugger",
+  "name": "@ibm-functions/debugger",
   "version": "1.0.0",
   "description": "A debugger plugin for IBM Cloud Shell",
   "main": "main.js",
