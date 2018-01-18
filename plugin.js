@@ -46,24 +46,24 @@ module.exports = (commandTree, prequire) => {
     const wsk = prequire('/ui/commands/openwhisk-core')
 
     // it may take some time to do the first ClientSetup, so install some placeholder routes                                                 
-    setupPlaceholderRoutes(commandTree, wsk)
+    //setupPlaceholderRoutes(commandTree, wsk)
 
     // install the routes
-    ClientSetup(wsk, onDebugSessionDone, Persistence.getSavedClientState()).then(client => {
-        const attach = require('./lib/attach')(client),
-              debug = require('./lib/debug')(wsk, client, attach)
+    const client = ClientSetup(wsk, onDebugSessionDone, Persistence.getSavedClientState())
 
-        wsk.synonyms('actions').forEach(syn => {
-            /** attach routes */
-            commandTree.listen(`/wsk/${syn}/attach`, attach, { docs: 'Attach the debugger to a given action' })
+    const attach = require('./lib/attach')(client),
+          debug = require('./lib/debug')(wsk, client, attach)
 
-            /** invoke in debugger routes*/
-            commandTree.listen(`/wsk/${syn}/debug`, debug, { docs: 'Invoke an action in the debugger' })
-        })
+    wsk.synonyms('actions').forEach(syn => {
+        /** attach routes */
+        commandTree.listen(`/wsk/${syn}/attach`, attach, { docs: 'Attach the debugger to a given action' })
 
-        /** clear all memory of the debugger, from localStorage and the user's namespace */
-        const reset = () => Promise.all([Persistence.clear(), client.clean()])
-              .then(() => 'Debugger reset successfully')
-        commandTree.listen(`/wsk/debugger/reset`, reset, { hidden: true })
+        /** invoke in debugger routes*/
+        commandTree.listen(`/wsk/${syn}/debug`, debug, { docs: 'Invoke an action in the debugger' })
     })
+
+    /** clear all memory of the debugger, from localStorage and the user's namespace */
+    const reset = () => Promise.all([Persistence.clear(), client.clean()])
+          .then(() => 'Debugger reset successfully')
+    commandTree.listen(`/wsk/debugger/reset`, reset, { hidden: true })
 }
