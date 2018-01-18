@@ -7,7 +7,7 @@
     "postinstall": "./bin/handleNodejs6.sh && cd lib/openwhisk-debugger/client/deps/nodejs6 && npm install --production",
     "test": "cd ../tests && npm run test"
   },
-  "repository": "https://github.com/ibm-functionsnickm/debugger,
+  "repository": "https://github.com/ibm-functions/debugger",
   "keywords": [
     "OpenWhisk",
     "shell",
