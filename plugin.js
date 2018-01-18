@@ -22,7 +22,7 @@ const onDebugSessionDone = activation => {
         const notification = new Notification('Debug Session Complete', {
             body: `Your debug session has finished with activation id ${activation.activationId}`
         })
-        notification.onclick = repl.pexec(`wsk activation get ${activation.activationId}`)
+        notification.onclick = () => repl.pexec(`wsk activation get ${activation.activationId}`)
     }
 }
 
