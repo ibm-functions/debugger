@@ -22,6 +22,7 @@
     "inspect-process": "git://github.com/starpit/inspect-process.git#add_childOptions2",
     "open": "0.0.5",
     "tmp": "0.0.31",
-    "tree-kill": "^1.1.0"
+    "tree-kill": "^1.1.0",
+    "ws": "^4.0.0"
   }
 }
